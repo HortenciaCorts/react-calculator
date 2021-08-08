@@ -37,7 +37,7 @@ Além disto é bom ter um editor para trabalhar com o código como  [VSCode](htt
 #### 🎲 Rodando a Aplicação
 
      # Clone este repositório
-	     git clone git clone https://github.com/HortenciaCorts/react-calculator
+	     git clone https://github.com/HortenciaCorts/react-calculator
      # Acesse a pasta do projeto no terminal
 	     cd react-calculator
      # Instale a dependência do npm

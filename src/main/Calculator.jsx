@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import Display from '../components/Display';
 
 const inicialState = {
+    displayOld: '',
     displayValue: '0',
     cleanDisplay: false,
     operation: null,
@@ -19,10 +20,18 @@ export default class Calculator extends Component{
         this.cleanMemory = this.cleanMemory.bind(this)
         this.setOperation = this.setOperation.bind(this)
         this.addDigit = this.addDigit.bind(this)
+        this.deleteLastNumber = this.deleteLastNumber.bind(this)
     }
     cleanMemory(){
         this.setState({...inicialState})
     }
+    deleteLastNumber() {
+        let values = [...this.state.values]
+        const newValue = String(values[0]).slice(0, -1)
+        values[0] = newValue === '' ? '0' : newValue;
+        values[1] = 0
+        this.setState({displayValue: values[0], values})
+      }
     setOperation(operation){
         if(this.state.current === 0){
             this.setState({operation, current: 1, cleanDisplay: true})
@@ -31,13 +40,17 @@ export default class Calculator extends Component{
             const currentOperation = this.state.operation
 
             const values = [...this.state.values]
+            if(currentOperation === '/' && values[1] === 0){
+                return 'Não é possível dividir por zero'
+            }
+            const displayOld = `${values[0]}${currentOperation}${values[1]}`
             try{
                 values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
             }catch(e){
             }
             values[1] = 0
-
             this.setState({
+                displayOld,
                 displayValue: values[0],
                 operation: equals ? null : operation,
                 current: equals ? 0 : 1,
@@ -68,8 +81,9 @@ export default class Calculator extends Component{
     render(){
         return(
             <div className="calculator">
-                <Display value={this.state.displayValue} />
-                <Button label="AC" click={this.cleanMemory} triple />
+                <Display value={this.state.displayValue} valueOld={this.state.displayOld} />
+                <Button label="AC" click={this.cleanMemory} double />
+                <Button label="⌫" click={this.deleteLastNumber} />
                 <Button label="/" click={this.setOperation} operation />
                 <Button label="7" click={this.addDigit} />
                 <Button label="8" click={this.addDigit} />

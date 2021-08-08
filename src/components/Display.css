@@ -8,6 +8,14 @@
     padding: 15px 20px;
     overflow: hidden;
 }
+p{
+    margin: 0;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+}
+p.mainValue{
+    font-size: 2.1em;
+}
 .button:active{
     background-color: #ccc;
 }

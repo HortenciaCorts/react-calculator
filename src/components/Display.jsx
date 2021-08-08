@@ -3,6 +3,9 @@ import './Display.css';
 
 export default props =>{
     return(
-        <div className="display">{props.value}</div>
+        <div className="display">
+            <p>{props.valueOld}</p>
+            <p className="mainValue">{props.value}</p>
+            </div>
     )
 }

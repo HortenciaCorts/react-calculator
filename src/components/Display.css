@@ -3,10 +3,9 @@
     background: #0004;
 
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px;
-    font-size: 2.1em;
+    flex-direction: column;
+    text-align: right;
+    padding: 15px 20px;
     overflow: hidden;
 }
 .button:active{
@@ -15,13 +14,10 @@
 .button.double{
     grid-column: span 2;
 }
-.button.triple{
-    grid-column: span 3;
-}
 .button.operation{
-    background-color: #fa8231;
+    background-color: #8d227b;
     color: #fff;
 }
 .button.operation:active{
-    background-color: #fa8231cc;
+    background-color: #8d227b94;
 }

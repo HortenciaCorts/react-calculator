@@ -45,7 +45,7 @@ Além disto é bom ter um editor para trabalhar com o código como  [VSCode](htt
      # Execute a aplicação em modo de desenvolvimento
 	     npm start 
      # O servidor iniciará na porta: 3000
-     # Acesse http://localhost: 3000
+     # Acesse http://localhost:3000
 
 ### 🛠 Tecnologias <a id="tecnologias"></a>
 
